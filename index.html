@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Viver com Intensidade e Agradecimento — Devocional</title>
+  <!-- Google Fonts (podem ser incorporadas ao PDF dependendo do conversor) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&family=Merriweather:ital,wght@1,300;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fffdf8;
+      --ink:#2f2f2f;
+      --accent:#1e3a5f;   /* azul profundo */
+      --accent2:#c6a700;  /* dourado */
+      --muted:#6b7280;
+      --border:#e5e7eb;
+    }
+
+    /* Base */
+    html, body{height:100%}
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page{
+      max-width: 820px;
+      margin: 32px auto;
+      background:#fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      border:1px solid var(--border);
+    }
+
+    .page-inner{
+      padding: 28mm 22mm;
+    }
+
+    header.hero{
+      margin-bottom: 1.2rem;
+    }
+    .kicker{
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      font-weight:700;
+      font-size:.8rem;
+      color: var(--accent2);
+    }
+    h1.title{
+      font-family:"Playfair Display", Georgia, "Times New Roman", serif;
+      font-weight:900;
+      font-size:2.2rem;
+      line-height:1.2;
+      margin:.35rem 0 0.75rem;
+      color: var(--accent);
+    }
+    .subtitle{
+      font-size:1rem;
+      color: var(--muted);
+      margin:0 0 1rem;
+    }
+    .ornament{
+      height:6px;
+      width:110px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      border-radius:8px;
+      margin: 8px 0 18px;
+    }
+
+    /* Tipografia */
+    h2{
+      font-family:"Playfair Display", Georgia, serif;
+      font-weight:700;
+      color: var(--accent);
+      margin: 1.6rem 0 .5rem;
+      font-size:1.35rem;
+    }
+
+    p{margin:.5rem 0 1rem; font-size:1.02rem}
+    p.lead{
+      font-size:1.08rem;
+      color:#1f2937;
+    }
+
+    .dropcap:first-letter{
+      font-family: "Playfair Display", Georgia, serif;
+      float:left;
+      font-size:3rem;
+      line-height:.9;
+      padding-right:.2rem;
+      color: var(--accent2);
+      font-weight:900;
+    }
+
+    blockquote.scripture{
+      font-family: "Merriweather", Georgia, serif;
+      font-style: italic;
+      background: #faf7e8;
+      border-left: 6px solid var(--accent2);
+      margin: 1rem 0;
+      padding: .9rem 1rem;
+    }
+    blockquote.scripture footer{
+      font-style: normal;
+      font-size:.9rem;
+      color:#4b5563;
+      margin-top:.4rem;
+    }
+
+    .callout{
+      border:1px solid var(--border);
+      background:#f8fafc;
+      padding: .9rem 1rem;
+      border-radius:10px;
+      margin: 1rem 0;
+    }
+    .callout .label{
+      font-variant-caps: all-small-caps;
+      color: var(--accent);
+      letter-spacing:.06em;
+      font-weight:700;
+      display:block;
+      margin-bottom:.3rem;
+    }
+
+    ul.check{
+      padding-left:1.2rem;
+      margin:.2rem 0 1rem;
+    }
+    ul.check li{
+      margin:.35rem 0;
+    }
+    ul.check li::marker{ content: "— "; color: var(--accent2); font-weight:700; }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      margin:1.2rem 0;
+      color: var(--muted);
+      font-size:.95rem;
+    }
+    .divider::before, .divider::after{
+      content:"";
+      height:1px;
+      flex:1;
+      background: linear-gradient(90deg, transparent, var(--border));
+    }
+    .divider::after{
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding: .9rem 1rem;
+    }
+    .card h3{
+      margin:.2rem 0 .5rem;
+      font-size:1.05rem;
+      color: var(--accent);
+      font-family:"Playfair Display", Georgia, serif;
+    }
+
+    .prayer{
+      font-family: "Merriweather", Georgia, serif;
+      background:#f7f7fb;
+      border-left:4px solid var(--accent);
+      padding: .9rem 1rem;
+      margin: 1rem 0;
+    }
+
+    footer.footer{
+      margin-top:1.6rem;
+      font-size:.9rem;
+      color: var(--muted);
+      text-align:center;
+    }
+
+    /* Quebras de página amigáveis para PDF */
+    .page-break{ page-break-before: always; }
+    h2, .divider{ break-after: avoid-page; }
+    blockquote, .callout, .card, ul{ break-inside: avoid; }
+
+    /* Estilos de impressão */
+    @page{
+      size: A4;
+      margin: 20mm 18mm;
+    }
+    @media print{
+      body{ background:#fff; }
+      .page{ box-shadow:none; border:none; margin:0; }
+      .page-inner{ padding:0; }
+      a.no-print{ display:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <header class="hero">
+        <span class="kicker">Devocional prático</span>
+        <h1 class="title">Viver com Intensidade e Agradecimento</h1>
+        <p class="subtitle">Um guia curto, inspirado nas Escrituras, para transformar as atividades diárias em adoração.</p>
+        <div class="ornament" aria-hidden="true"></div>
+      </header>
+
+      <section>
+        <p class="lead dropcap">
+          A vida cristã não é morna nem automática. É um convite para viver cada momento com
+          <strong>intensidade</strong> e com <strong>agradecimento</strong>, reconhecendo que o Senhor está presente no cotidiano: no trabalho, nos estudos, no cuidado da casa, nos encontros e nos intervalos.
+        </p>
+        <blockquote class="scripture">
+          “Tudo o que fizerem, façam de todo o coração, como para o Senhor.”
+          <footer>— Colossenses 3:23 (paráfrase)</footer>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>1) Intensidade: inteireza de coração</h2>
+        <p>
+          Intensidade não é correria; é inteireza. É oferecer a Deus o melhor de nós no que estiver diante de nós, sem dividir o coração entre vaidade, ansiedade e comparação.
+        </p>
+        <div class="callout">
+          <span class="label">Sinais de intensidade saudável</span>
+          <ul class="check">
+            <li><strong>Presença</strong>: atenção plena à tarefa e às pessoas.</li>
+            <li><strong>Propósito</strong>: lembrar por <em>Quem</em> e para <em>Quem</em> fazemos.</li>
+            <li><strong>Perseverança</strong>: constância nas pequenas fidelidades.</li>
+          </ul>
+        </div>
+        <blockquote class="scripture">
+          “Corramos com perseverança a carreira que nos é proposta, fitando os olhos em Jesus.”
+          <footer>— Hebreus 12:1–2 (paráfrase)</footer>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>2) Agradecimento: a respiração da alma</h2>
+        <p>
+          Gratidão é a memória do coração. Quando damos graças, reorientamos o olhar: do que falta para o que Deus já fez e está fazendo.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Três fontes de gratidão</h3>
+            <ul class="check">
+              <li>Pelo <strong>passado</strong>: cuidado e livramentos.</li>
+              <li>Pelo <strong>presente</strong>: provisão e presença.</li>
+              <li>Pelo <strong>futuro</strong>: promessas e esperança.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Palavras que curvam o coração</h3>
+            <p>“Obrigado, Senhor, por este dia. Ensina-me a ver Tua mão em cada detalhe.”</p>
+          </div>
+        </div>
+        <blockquote class="scripture">
+          “Em tudo, deem graças, pois esta é a vontade de Deus para vocês em Cristo.”
+          <footer>— 1 Tessalonicenses 5:18 (paráfrase)</footer>
+        </blockquote>
+      </section>
+
+      <div class="divider">Aplicando no cotidiano</div>
+
+      <section>
+        <h2>3) Hábitos diários para intensidade e gratidão</h2>
+        <ul class="check">
+          <li><strong>Comece</strong> o dia com 5 minutos de silêncio, leitura breve e oração.</li>
+          <li><strong>Ofereça</strong> cada tarefa: “Senhor, receba este trabalho como adoração”.</li>
+          <li><strong>Pratique</strong> a <em>regra dos três agradecimentos</em> ao meio-dia.</li>
+          <li><strong>Desacelere</strong> antes de responder: troque reatividade por mansidão.</li>
+          <li><strong>Feche</strong> o dia revisando aprendizados e entregando o amanhã ao Senhor.</li>
+        </ul>
+        <div class="callout">
+          <span class="label">Exercício de 7 dias</span>
+          <p>
+            Durante uma semana, registre ao final do dia: 1) uma tarefa em que você se doou por inteiro;
+            2) três motivos de gratidão; 3) uma pessoa por quem orar. Ao final, compartilhe um testemunho.
+          </p>
+        </div>
+      </section>
+
+      <section class="page-break">
+        <h2>4) Oração final</h2>
+        <div class="prayer">
+          <p>
+            Pai amado, firma meu coração em Cristo. Dá-me foco para viver com inteireza
+            e olhos para reconhecer Tua bondade em cada detalhe.
+            Que o trabalho das minhas mãos Te honre, que minhas palavras tragam vida,
+            e que a gratidão seja o ritmo da minha alma. Em nome de Jesus, amém.
+          </p>
+        </div>
+
+        <h2>Versículos de referência</h2>
+        <ul class="check">
+          <li>Colossenses 3:23 • Fazer de todo o coração para o Senhor.</li>
+          <li>Hebreus 12:1–2 • Perseverar, olhando para Jesus.</li>
+          <li>1 Tessalonicenses 5:16–18 • Alegria, oração e gratidão em tudo.</li>
+          <li>Filipenses 4:4–7 • Alegrar-se no Senhor; apresentar pedidos com ações de graças.</li>
+          <li>Salmo 103 • Bendizer ao Senhor e não esquecer de nenhum de Seus benefícios.</li>
+        </ul>
+
+        <footer class="footer">
+          Preparado para impressão em A4. Sugestão: ao exportar para PDF, ative “Imprimir plano de fundo” para preservar cores.
+        </footer>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
